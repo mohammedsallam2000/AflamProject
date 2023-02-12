@@ -1,0 +1,19 @@
+<div class="container py-5">
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <img class ="w-100" [src]="imgPrefix+personDetails?.profile_path">
+        </div>
+        <div class="col-md-8">
+            <h2 class="p-3">{{personDetails?.name}}</h2>
+            <p class="p-2">{{personDetails?.biography}}</p>
+
+            <p class="p-2"><span class="font-weight-bold">Gender : </span>{{gender}}</p>
+            <p class="p-2"><span class="font-weight-bold">Place of birth : </span>{{personDetails?.place_of_birth}}</p>
+            <p *ngIf="personDetails?.deathday" class="p-5"><span class="font-weight-bold">Deathday : </span>{{personDetails?.deathday}}</p>
+
+        </div>
+    </div>
+
+</div>

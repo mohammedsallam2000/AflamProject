@@ -1,0 +1,18 @@
+<div class="container py-5">
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <img class ="w-100" [src]="imgPrefix+movieDetails?.poster_path">
+        </div>
+        <div class="col-md-8">
+            <h3 class="p-4">{{movieDetails?.title}}</h3>
+            <p class="p-2">{{movieDetails?.overview}}</p>
+            <p  class="p-2"><span class="font-weight-bold">Language : </span>{{movieDetails?.original_language}}</p>
+            
+            <p  class="p-2"><span class="font-weight-bold">Tagline : </span>{{movieDetails?.tagline}}</p>
+
+        </div>
+    </div>
+
+</div>

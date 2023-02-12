@@ -1,0 +1,75 @@
+<div style="margin-top: 100px;"></div>
+
+<div class = "w-75 m-auto py-5">
+    <!-- <div *ngIf="error.length > 0" class="alert alert-danger my-2">
+        <p >{{error}}</p>
+      </div> -->
+    <form [formGroup]="loginForm" (ngSubmit)="SubmitloginForm(loginForm)">
+        <!-- <h1 >{{loginForm.get('first_name')?.errors|json}}</h1> -->
+       
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email : </label>
+          <div class="col-sm-7">
+            <input formControlName="email" type="email" class="form-control" id="inputEmail3">
+            <div *ngIf="loginForm.get('email')?.errors !=null && loginForm.get('email')?.touched" class="alert alert-danger my-2">
+                <p *ngIf="loginForm.get('email')?.errors?.required">Email is required !</p>
+                <p *ngIf="loginForm.get('email')?.errors?.email">Email is invalid !</p>
+
+              </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Password : </label>
+          <div class="col-sm-7">
+            <input formControlName="password" type="password" class="form-control" id="inputPassword3">
+            <div *ngIf="loginForm.get('password')?.errors !=null && loginForm.get('password')?.touched" class="alert alert-danger my-2">
+                <p *ngIf="loginForm.get('password')?.errors?.required">Password is required !</p>
+                <p *ngIf="loginForm.get('password')?.errors?.pattern">Password Must start uppercase ... !</p>
+
+              </div>
+          </div>
+        </div>
+        <fieldset class="form-group row">
+          <!-- <legend class="col-form-label col-sm-2 float-sm-left pt-0">Radios</legend> -->
+          <div class="col-sm-7">
+            <!-- <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1">
+                First radio
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                Second radio
+              </label>
+            </div> -->
+            <!-- <div class="form-check disabled">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+              <label class="form-check-label" for="gridRadios3">
+                Third disabled radio
+              </label>
+            </div> -->
+          </div>
+        </fieldset>
+        <div class="form-group row">
+          <div class="col-sm-7 offset-sm-2">
+            <div class="form-check">
+              <a class="form-check-label" for="gridCheck1">
+                Are you forget password !
+              </a>
+            </div>
+            <div class="form-check">
+                <a class="form-check-label" for="gridCheck1">
+                  Register !
+                </a>
+              </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div style="margin : auto" class="col-sm-4">
+            <button style="width: 250px;" [disabled]="loginForm.invalid" type="submit" class="btn btn-info">Login</button>
+          </div>
+        </div>  
+      </form>
+</div> 

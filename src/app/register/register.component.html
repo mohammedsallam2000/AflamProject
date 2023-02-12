@@ -1,0 +1,103 @@
+<div style="margin-top: 100px;"></div>
+
+<div class = "w-75 m-auto py-5">
+    <div *ngIf="error.length > 0" class="alert alert-danger my-2">
+        <p >{{error}}</p>
+      </div>
+    <form [formGroup]="registerForm" (ngSubmit)="SubmitRegisterForm(registerForm)">
+        <!-- <h1 >{{registerForm.get('first_name')?.errors|json}}</h1> -->
+        <div class="form-group row">
+            <label for="FirstName" class="col-sm-2 col-form-label">First Name : </label>
+            <div class="col-sm-7">
+              <input formControlName="first_name" type="text" class="form-control" id="FirstName">
+              <div *ngIf="registerForm.get('first_name')?.errors !=null && registerForm.get('first_name')?.touched" class="alert alert-danger my-2">
+                <p *ngIf="registerForm.get('first_name')?.errors?.required">First Name is required !</p>
+                <p *ngIf="registerForm.get('first_name')?.errors?.minlength">First Name minLeangth 3</p>
+                <p *ngIf="registerForm.get('first_name')?.errors?.maxlength">First Name MaxLeangth 10</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="LastName" class="col-sm-2 col-form-label">Last Name : </label>
+            <div class="col-sm-7">
+              <input formControlName="last_name" type="text" class="form-control" id="LastName">
+              <div *ngIf="registerForm.get('last_name')?.errors !=null && registerForm.get('last_name')?.touched" class="alert alert-danger my-2">
+                <p *ngIf="registerForm.get('last_name')?.errors?.required">Last Name is required !</p>
+                <p *ngIf="registerForm.get('last_name')?.errors?.minlength">Last Name minLeangth 3</p>
+                <p *ngIf="registerForm.get('last_name')?.errors?.maxlength">Last Name MaxLeangth 10</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="Age" class="col-sm-2 col-form-label">Age : </label>
+            <div class="col-sm-7">
+              <input formControlName="age" type="number" class="form-control" id="Age">
+              <div *ngIf="registerForm.get('age')?.errors !=null && registerForm.get('age')?.touched" class="alert alert-danger my-2">
+                <p *ngIf="registerForm.get('age')?.errors?.required">Age is required !</p>
+                <p *ngIf="registerForm.get('age')?.errors?.min">Age is min 16</p>
+                <p *ngIf="registerForm.get('age')?.errors?.max">Age is Max 60</p>
+              </div>
+            </div>
+          </div>
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email : </label>
+          <div class="col-sm-7">
+            <input formControlName="email" type="email" class="form-control" id="inputEmail3">
+            <div *ngIf="registerForm.get('email')?.errors !=null && registerForm.get('email')?.touched" class="alert alert-danger my-2">
+                <p *ngIf="registerForm.get('email')?.errors?.required">Email is required !</p>
+                <p *ngIf="registerForm.get('email')?.errors?.email">Email is invalid !</p>
+
+              </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Password : </label>
+          <div class="col-sm-7">
+            <input formControlName="password" type="password" class="form-control" id="inputPassword3">
+            <div *ngIf="registerForm.get('password')?.errors !=null && registerForm.get('password')?.touched" class="alert alert-danger my-2">
+                <p *ngIf="registerForm.get('password')?.errors?.required">Password is required !</p>
+                <p *ngIf="registerForm.get('password')?.errors?.pattern">Password Must start uppercase ... !</p>
+
+              </div>
+          </div>
+        </div>
+        <fieldset class="form-group row">
+          <!-- <legend class="col-form-label col-sm-2 float-sm-left pt-0">Radios</legend> -->
+          <div class="col-sm-7">
+            <!-- <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+              <label class="form-check-label" for="gridRadios1">
+                First radio
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                Second radio
+              </label>
+            </div> -->
+            <!-- <div class="form-check disabled">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
+              <label class="form-check-label" for="gridRadios3">
+                Third disabled radio
+              </label>
+            </div> -->
+          </div>
+        </fieldset>
+        <div class="form-group row">
+          <div class="col-sm-7 offset-sm-2">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck1">
+              <label class="form-check-label" for="gridCheck1">
+                Remember Me
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div style="margin : auto" class="col-sm-4">
+            <button style="width: 250px;" [disabled]="registerForm.invalid" type="submit" class="btn btn-info">Register</button>
+          </div>
+        </div>  
+      </form>
+</div> 

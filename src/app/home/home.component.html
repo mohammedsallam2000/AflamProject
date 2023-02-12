@@ -1,0 +1,80 @@
+<app-homeheader [parentData] = 'trndingMovies'></app-homeheader>
+
+<div class="container">
+
+<!-- movies -->
+    <div class="row py-5">
+        <div class="col-md-5 d-flex align-items-center">
+            <div>
+                <div class="brdr w-25 mb-4">  </div>
+                <h2>Tending Movies to watch <br />Right now</h2>
+                <p class="second-color my-2">Most watched movies by dayes</p>
+                <div class="brdr w-75 mt-4">  </div>
+    
+            </div>
+            
+        </div>
+        <div *ngFor="let movie of trndingMovies" class="col-md-2">
+          <a [routerLink]='["/movieDetails",movie.id]'>
+            <div class="movie my-2 position-relative">
+                <img class="w-100" [src]="imgPrefix+movie.poster_path" [alt]="movie.title">
+                <h3 class="my-2 h6">{{movie.title}}</h3>
+               </div>
+              <div class="vote">
+                {{movie.vote_average}}
+              </div>
+          </a>
+
+        </div>
+    </div>
+
+
+<!-- TV -->
+
+    <div class="row py-5">
+        <div class="col-md-5 d-flex align-items-center">
+            <div>
+                <div class="brdr w-25 mb-4">  </div>
+                <h2>Tending TV to watch <br />Right now</h2>
+                <p class="second-color my-2">Most watched tv by dayes</p>
+                <div class="brdr w-75 mt-4">  </div>
+    
+            </div>
+            
+        </div>
+        <div *ngFor="let tv of trndingTv" class="col-md-2">
+           <div class="movie my-2 position-relative">
+            <img class="w-100" [src]="imgPrefix+tv.poster_path" [alt]="tv.title">
+            <h3 class="my-2 h6">{{tv.title}}</h3>
+           </div>
+          <div class="vote">
+            {{tv.vote_average}}
+          </div>
+
+        </div>
+    </div>
+
+    <!-- Persons -->
+    <div class="row py-5">
+        <div class="col-md-5 d-flex align-items-center">
+            <div>
+                <div class="brdr w-25 mb-4">  </div>
+                <h2>Tending People to watch <br />Right now</h2>
+                <p class="second-color my-2">Most watched People by dayes</p>
+                <div class="brdr w-75 mt-4">  </div>
+    
+            </div>
+            
+        </div>
+        <div *ngFor="let People of trndingPeople" class="col-md-2">
+            <a [routerLink]='["/personDetails",People.id]'>
+                <div class="movie my-2 position-relative">
+                    <img class="w-100" [src]="imgPrefix+People.profile_path" [alt]="People.title">
+                    <h3 class="my-2 h6">{{People.name}}</h3>
+                   </div>
+            </a>
+         
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<section class="vh-100 d-flex align-items-end">
+    <div class="container">
+        <h1 class="font-weight-bold">Our Latest Moves</h1>
+ <owl-carousel-o [options]="customOptions">
+
+    <ng-container *ngFor="let movie of parentData">
+      <ng-template carouselSlide [id]="movie.id">
+        
+        <img [src]="imgPrefix+movie.poster_path" [alt]="movie.title" [title]="movie.title">
+      </ng-template>
+    </ng-container>
+
+  </owl-carousel-o>
+    </div>
+
+</section> 
